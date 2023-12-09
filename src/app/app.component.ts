@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'boot';
+  welcomeMessage: string | null = null;
+
+  submitForm() {
+    const nameInput = document.getElementById('name') as HTMLInputElement;
+
+    if (nameInput.value.trim() === '') {
+      alert('Please enter your name.');
+      return;
+    }
+
+    this.welcomeMessage = `Welcome, ${nameInput.value}!`;
+  }
 }
